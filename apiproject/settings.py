@@ -22,12 +22,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-x033&zd=*uaiher=$ay^jq_b8b%^+xt8@w$dy@c$te%ed85he3'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['api-production-868c.up.railway.app',]
+ALLOWED_HOSTS = ['api-production-868c.up.railway.app',
+                 "127.0.0.1",
+                "localhost",]
 
 
+
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://api-production-868c.up.railway.app",
+    "https://*.up.railway.app",
+]
 # Application definition
 
 INSTALLED_APPS = [
