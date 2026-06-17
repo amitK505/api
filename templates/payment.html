@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>payment...</title>
+</head>
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="" id="" value="{{k}}">
+        
+        <button type="submit" id="pay-btn">Pay Now</button>
+    </form>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    
+
+    <script>
+        var options = {
+            "key": "{{ key }}",
+            "amount": "{{ payment.c }}",
+            "currency": "INR",
+            "name": "HireDrive",
+            "order_id": "{{ payment.id }}",
+
+            "handler": function (response) {
+                alert("Payment Successful");
+                window.location.href = "/success/";
+            }
+        };
+
+        var rzp = new Razorpay(options);
+
+        document.getElementById('pay-btn').onclick = function (e) {
+            rzp.open();
+            e.preventDefault();
+        }
+    </script>
+</body>
+
+</html>

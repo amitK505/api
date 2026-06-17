@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>enter amount</title>
+</head>
+<body>
+    <h1>amount</h1>
+    <form action="/" method="POST">
+        {%csrf_token%}
+        <input type="number" name="amount" id="amount" maxlength="6" minlength="2" placeholder="enter amount">
+        <button type="submit"> confirm</button>
+    </form>
+</body>
+</html>
