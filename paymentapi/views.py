@@ -33,7 +33,7 @@ def payment(request):
     context = {
         "payment": payment,
         "key": settings.RAZORPAY_KEY_ID,
-        "k":int(request.session.get("l"))
+        
     }
 
     return render(request, "payment.html", context)
