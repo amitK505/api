@@ -28,13 +28,14 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['api-production-868c.up.railway.app',
                  "127.0.0.1",
-                "localhost",]
+                "localhost",
+                "paymentgateway2.up.railway.app",]
 
 
 
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://api-production-868c.up.railway.app",
+    
     "https://*.up.railway.app",
 ]
 # Application definition
