@@ -7,19 +7,85 @@
     <title>payment...</title>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 20px;
+            background: #f8f9fa;
+        }
+
+        #pay-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #28a745;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #pay-btn:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+
+        #pay-btn:active {
+            transform: translateY(0);
+        }
+    </style>
+
+
 </head>
 
 <body>
     {%csrf_token%}
     <form method="POST" action="/payment/">
         {% csrf_token %}
-        <input type="text" name="" id="" value="{{k}}">
-        
-        <button type="submit" id="pay-btn">Pay Now</button>
-    </form>
-    
+        <input type="text" name="" id="" value="{{k}}" readonly>
 
-    
+        <button type="button" id="pay-btn">Pay Now</button>
+    </form>
+
+
+
+
+
+
+
+
 
     <script>
         var options = {
@@ -30,8 +96,11 @@
             "order_id": "{{ payment.id }}",
 
             "handler": function (response) {
-                alert("Payment Successful");
-                window.location.href = "/success/";
+                alert("payment successfully")
+                window.location.href = "{% url 'successt' %}";
+
+                
+                
             }
         };
 

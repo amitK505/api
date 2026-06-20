@@ -3,14 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>enter amount</title>
+    <title>Enter Amount</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#4facfe,#00f2fe);
+        }
+
+        .container{
+            background:#fff;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.2);
+            text-align:center;
+            width:350px;
+        }
+
+        h1{
+            margin-bottom:20px;
+            color:#333;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            border:2px solid #ddd;
+            border-radius:8px;
+            font-size:16px;
+            outline:none;
+            margin-bottom:15px;
+            transition:0.3s;
+        }
+
+        input:focus{
+            border-color:#4facfe;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            border:none;
+            border-radius:8px;
+            background:#4facfe;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#2d8cf0;
+        }
+    </style>
 </head>
 <body>
-    <h1>amount</h1>
-    <form action="/" method="POST">
-        {%csrf_token%}
-        <input type="text" name="amount" id="amount" maxlength="6" minlength="2" placeholder="enter amount">
-        <button type="submit"> confirm</button>
-    </form>
+
+    <div class="container">
+        <h1>Enter Amount</h1>
+
+        <form action="/" method="POST">
+            {% csrf_token %}
+            <input type="text" name="amount" id="amount"
+                   placeholder="Enter Amount" min="1">
+            <button type="submit">Confirm</button>
+        </form>
+    </div>
+
 </body>
 </html>
