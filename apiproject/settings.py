@@ -38,6 +38,7 @@ ALLOWED_HOSTS = ['api-production-868c.up.railway.app',
 CSRF_TRUSTED_ORIGINS = [
     
     "https://*.up.railway.app",
+    "https://paymentgateway.up.railway.app",
 ]
 # Application definition
 

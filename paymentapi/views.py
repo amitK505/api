@@ -16,11 +16,22 @@ def home(request):
 
 
 
+
+
+def successt(request):
+    return render(request,"success.html")
+    
+
+    
+
+
+
 def payment(request):
     
     client = razorpay.Client(
         auth=(settings.RAZORPAY_KEY_ID,
               settings.RAZORPAY_KEY_SECRET)
+        
              
     )
 
@@ -29,12 +40,16 @@ def payment(request):
         "currency": "INR",
         "payment_capture": "1"
     })
+    
 
     context = {
         "payment": payment,
         "key": settings.RAZORPAY_KEY_ID,
+        "k":request.session.get("l")
         
     }
+    
+    
 
     return render(request, "payment.html", context)
 
